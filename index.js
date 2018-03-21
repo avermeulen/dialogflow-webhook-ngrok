@@ -12,13 +12,13 @@ app.use(bodyParser.json());
 app.post("/silly", function(req, res, next){
 
   // uncomment this to see what DialogFlow is sending us.
-  // console.log(parameters);
+  // console.log(req.body);
 
   const result = req.body.result;
   const parameters = result.parameters;
 
   const sillyGreeting = `Your favourite color is ${parameters.color} and your number is ${parameters.number}`;
-  
+
   res.json({
     speech : sillyGreeting,
     displayText : sillyGreeting
